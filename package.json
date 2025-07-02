@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@tailwindcss/forms": "^0.5.10",
+    "@vercel/postgres": "^0.10.0",
+    "autoprefixer": "10.4.20",
+    "bcrypt": "^5.1.1",
+    "clsx": "^2.1.1",
+    "next": "^15.4.0-canary.103",
+    "next-auth": "5.0.0-beta.25",
+    "postcss": "8.5.1",
+    "postgres": "^3.4.6",
+    "react": "^19.2.0-canary-d92056ef-20250627",
+    "react-dom": "^19.2.0-canary-d92056ef-20250627",
+    "tailwindcss": "3.4.17",
+    "use-debounce": "^10.0.4",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.28"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "bcrypt",
+      "sharp"
+    ]
+  }
+}
