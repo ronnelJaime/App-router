@@ -1,17 +1,13 @@
-    // app/ui/segmented-loading-bar.jsx
-    // This component creates a custom loading bar with segments appearing one after another.
-
     'use client';
 
     import { useState, useEffect } from 'react';
     import { usePathname, useSearchParams } from 'next/navigation';
 
-    // Import custom CSS for the segmented loading bar
     import '@/app/ui/segmented-loading-bar.css';
 
-    const NUM_SEGMENTS = 5; // Number of segments in the loading bar
-    const SEGMENT_ANIMATION_DELAY = 100; // Delay between each segment appearing (ms)
-    const LOADING_DURATION = 1500; // Total simulated loading duration (ms)
+    const NUM_SEGMENTS = 5; 
+    const SEGMENT_ANIMATION_DELAY = 100; 
+    const LOADING_DURATION = 1500; 
 
     export default function SegmentedLoadingBar() {
       const pathname = usePathname();
@@ -20,44 +16,39 @@
       const [isLoading, setIsLoading] = useState(false);
 
       useEffect(() => {
-        // This effect runs whenever the route changes
+       
         setIsLoading(true);
-        setVisibleSegments(0); // Reset segments on new navigation
-
-        // Simulate segments appearing one after another
+        setVisibleSegments(0); 
+    
         let segmentInterval;
         let loadingTimeout;
 
-        // Start showing segments sequentially
         segmentInterval = setInterval(() => {
           setVisibleSegments(prev => {
             if (prev < NUM_SEGMENTS) {
               return prev + 1;
             }
-            clearInterval(segmentInterval); // Stop increasing once all are visible
+            clearInterval(segmentInterval); 
             return prev;
           });
         }, SEGMENT_ANIMATION_DELAY);
 
-        // Simulate the completion of loading after a total duration
-        // In a real app, this would be tied to actual data fetching completion
         loadingTimeout = setTimeout(() => {
           setIsLoading(false);
-          setVisibleSegments(0); // Hide all segments
-          clearInterval(segmentInterval); // Ensure interval is cleared
+          setVisibleSegments(0); 
+          clearInterval(segmentInterval); 
         }, LOADING_DURATION);
 
-        // Cleanup function: Clear intervals and timeouts if component unmounts or effect re-runs
         return () => {
           clearInterval(segmentInterval);
           clearTimeout(loadingTimeout);
-          setIsLoading(false); // Ensure loader is hidden on cleanup
+          setIsLoading(false); 
           setVisibleSegments(0);
         };
-      }, [pathname, searchParams]); // Re-run effect on route changes
+      }, [pathname, searchParams]);
 
       if (!isLoading) {
-        return null; // Don't render anything if not loading
+        return null; 
       }
 
       return (

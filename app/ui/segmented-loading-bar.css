@@ -1,35 +1,31 @@
-    /* app/ui/segmented-loading-bar.css */
-    /* Styles for the custom segmented loading bar */
 
     .segmented-loading-bar-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 3px; /* Overall height of the loading bar */
+      height: 3px; 
       display: flex;
-      overflow: hidden; /* Hide segments that are not yet visible */
-      z-index: 1031; /* Ensure it's on top */
-      justify-content: flex-start; /* Start segments from the left */
+      overflow: hidden; 
+      z-index: 1031;
+      justify-content: flex-start; 
     }
 
     .segmented-loading-bar-segment {
-      flex-grow: 1; /* Each segment takes equal width */
+      flex-grow: 1; 
       height: 100%;
-      background-color: #29d; /* Color of the segments */
-      opacity: 0; /* Start hidden */
-      transform: translateX(-100%); /* Start off-screen to the left */
-      transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Smooth transition */
+      background-color: #29d; 
+      opacity: 0; 
+      transform: translateX(-100%); 
+      transition: opacity 0.3s ease-out, transform 0.3s ease-out; 
     }
 
     .segmented-loading-bar-segment.is-visible {
-      opacity: 1; /* Fade in */
-      transform: translateX(0); /* Slide into view */
+      opacity: 1; 
+      transform: translateX(0); 
     }
 
-    /* Optional: Add a subtle animation to the entire bar once all segments are visible */
-    /* This can make it look like the "lines" are moving after they appear */
-    /*
+    
     .segmented-loading-bar-container.is-loading-active {
       animation: pulse-segments 1s infinite alternate;
     }
@@ -38,5 +34,5 @@
       from { transform: scaleX(0.98); }
       to { transform: scaleX(1); }
     }
-    */
+  
     

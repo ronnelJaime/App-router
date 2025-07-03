@@ -1,4 +1,4 @@
-// app/page.jsx
+
 import AcmeLogo from '@/app/ui/acme-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -37,14 +37,14 @@ export default function Page() {
             src="/hero-desktop.png"
             width={1000}
             height={760}
-            className="hidden md:block" // Tailwind class to hide on mobile, show on desktop
+            className="hidden md:block" 
             alt="Screenshots of the dashboard project showing desktop version"
           />
           <Image
             src="/hero-mobile.png"
             width={560}
             height={620}
-            className="block md:hidden" // Tailwind class to show on mobile, hide on desktop
+            className="block md:hidden"
             alt="Screenshot of the dashboard project showing mobile version"
           />
         </div>

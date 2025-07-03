@@ -1,17 +1,12 @@
-    // app/lib/actions.js
-    // This file contains Server Actions for data mutations and authentication.
-    // Follows Chapter 15 tutorial exactly.
-
-    'use server';
+'use server';
 
     import { z } from 'zod';
-    import postgres from 'postgres'; // As per your previous request to use 'postgres'
+    import postgres from 'postgres'; 
     import { revalidatePath } from 'next/cache';
     import { redirect } from 'next/navigation';
-    import { signIn } from '@/auth'; // Import signIn from your auth.js file
-    import { AuthError } from 'next-auth'; // Import AuthError for specific error handling
-
-    // Initialize the postgres client (ensure your .env has POSTGRES_URL)
+    import { signIn } from '@/auth'; 
+    import { AuthError } from 'next-auth'; 
+    
     const sql = postgres(process.env.POSTGRES_URL, { ssl: 'require' });
 
     const InvoiceSchema = z.object({
@@ -109,10 +104,9 @@
       }
     }
 
-    // New authentication Server Action - EXACTLY AS PER TUTORIAL
     export async function authenticate(
-      prevState, // This will hold the previous state from useActionState
-      formData, // The form data submitted
+      prevState, 
+      formData, 
     ) {
       try {
         await signIn('credentials', formData);

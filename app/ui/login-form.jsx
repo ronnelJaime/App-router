@@ -1,8 +1,4 @@
-    // app/ui/login/login-form.jsx
-    // This component provides the user interface for logging into the application.
-    // Follows Chapter 15 tutorial exactly.
-
-    'use client'; // This is a Client Component
+    'use client'; 
 
     import { lusitana } from '@/app/ui/fonts';
     import {
@@ -12,19 +8,17 @@
     } from '@heroicons/react/24/outline';
     import { ArrowRightIcon } from '@heroicons/react/20/solid';
     import { Button } from '@/app/ui/button';
-    import { useActionState } from 'react'; // From 'react'
-    import { authenticate } from '@/app/lib/actions'; // Import the authenticate Server Action
-    import { useSearchParams } from 'next/navigation'; // For redirecting after login
+    import { useActionState } from 'react'; 
+    import { authenticate } from '@/app/lib/actions'; 
+    import { useSearchParams } from 'next/navigation'; 
 
     export default function LoginForm() {
       const searchParams = useSearchParams();
-      const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'; // Tutorial uses '/dashboard' as default
+      const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'; 
 
-      // Initialize useActionState for the login form
-      // The tutorial uses 'undefined' as the initial state for errorMessage
       const [errorMessage, formAction, isPending] = useActionState(
         authenticate,
-        undefined, // Initial state for errorMessage
+        undefined,
       );
 
       return (
@@ -46,9 +40,9 @@
                     className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
                     id="email"
                     type="email"
-                    name="email" // Crucial for formData
+                    name="email" 
                     placeholder="Enter your email address"
-                    required // As per tutorial
+                    required 
                   />
                   <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
                 </div>
@@ -65,10 +59,10 @@
                     className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
                     id="password"
                     type="password"
-                    name="password" // Crucial for formData
+                    name="password" 
                     placeholder="Enter password"
-                    required // As per tutorial
-                    minLength={6} // As per tutorial
+                    required
+                    minLength={6}
                   />
                   <KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
                 </div>
