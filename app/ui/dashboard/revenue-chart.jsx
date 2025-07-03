@@ -27,8 +27,6 @@
                   <p key={label}>{label}</p> 
                 ))}
               </div>
-
-             
               <div className="grid grid-cols-12 gap-2 md:gap-4 flex-grow">
                 {revenue.map((month) => (
                   <div key={month.month} className="flex flex-col items-center gap-2 justify-end"> 

@@ -15,7 +15,6 @@ export async function fetchRevenue() {
     throw new Error('Failed to fetch revenue data.');
   }
 }
-
 export async function fetchLatestInvoices() {
   try {
     const data = await sql`
@@ -35,7 +34,6 @@ export async function fetchLatestInvoices() {
     throw new Error('Failed to fetch the latest invoices.');
   }
 }
-
 export async function fetchCardData() {
   try {
     const invoiceCountPromise = sql`SELECT COUNT(*) FROM invoices`;
@@ -67,7 +65,6 @@ export async function fetchCardData() {
     throw new Error('Failed to fetch card data.');
   }
 }
-
 export async function fetchFilteredInvoices(
   query,
   currentPage,
